@@ -16,7 +16,7 @@ class BalancebotEnv(gym.Env):
         'video.frames_per_second' : 50
     }
 
-    def __init__(self, render=False):
+    def __init__(self, render=True):
         self._observation = []
         self.action_space = spaces.Box(np.array([-1]), 
                                             np.array([1]))
@@ -62,7 +62,7 @@ class BalancebotEnv(gym.Env):
     def reset(self):
         # reset is called once at initialization of simulation
         self.vt = 0
-        self.vd = 0.05
+        self.vd = 0
         self.maxV = 24.6 # 235RPM = 24,609142453 rad/sec
         self._envStepCounter = 0
 
